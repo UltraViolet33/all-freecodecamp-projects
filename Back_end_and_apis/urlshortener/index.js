@@ -21,24 +21,35 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.post("/api/shorturl", function (req, res) {
-  console.log(req.body.url);
   const url = req.body.url;
 
   if (!stringIsAValidUrl(url)) {
-    res.send({ error: "Invalide URL" });
+    return res.send({ error: "Invalide URL" });
   }
 
-  // const shorterUrl = shortId.generate();
-  // generate random id and check if exist already
+  let urlsAlreadyExists = isUrlInFile(url);
+
+  if (urlsAlreadyExists) {
+    console.log("is in file");
+    return res.send(urlsAlreadyExists);
+  }
+  const shorterUrl = Math.floor(Math.random() * 100);
 
   saveUrl({ original_url: url, short_url: shorterUrl });
 
-  res.send({  original_url: url, short_url: shorterUrl });
+  res.send({ original_url: url, short_url: shorterUrl });
+});
 
-  // check if it is already in the json file
-  // return short url
-  // write in json file
-  // return the short url
+app.get("/api/shorturl/:redirect", function (req, res) {
+  const url = req.params.redirect;
+  console.log(url);
+
+  const shortUrl = findShortUrl(url);
+  if (shortUrl) {
+    return res.redirect(shortUrl.original_url);
+  }
+
+  return res.send({ error: "wrong format" });
 });
 
 app.listen(port, function () {
@@ -54,8 +65,35 @@ const stringIsAValidUrl = s => {
   }
 };
 
+const isUrlInFile = new_url => {
+  const urls = getUrls();
+
+  for (const url of urls) {
+    if (url.original_url == new_url) {
+      return url;
+    }
+  }
+
+  return false;
+};
+
+const findShortUrl = shortUrl => {
+  const urls = getUrls();
+
+  for (const url of urls) {
+    if (url.short_url == shortUrl) {
+      return url;
+    }
+  }
+
+  return false;
+};
+
 const saveUrl = data => {
-  const stringData = JSON.stringify(data);
+  const urls = getUrls();
+  urls.push(data);
+
+  const stringData = JSON.stringify(urls);
   fs.writeFileSync("urls.json", stringData);
 };
 
