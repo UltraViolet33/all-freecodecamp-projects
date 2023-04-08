@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
+
 const fs = require("fs");
 
 // Basic Configuration
@@ -23,14 +24,13 @@ app.get("/api/hello", function (req, res) {
 app.post("/api/shorturl", function (req, res) {
   const url = req.body.url;
 
-  if (!stringIsAValidUrl(url)) {
+  if (!isValidUrl(url)) {
     return res.send({ error: "Invalide URL" });
   }
 
   let urlsAlreadyExists = isUrlInFile(url);
 
   if (urlsAlreadyExists) {
-    console.log("is in file");
     return res.send(urlsAlreadyExists);
   }
   const shorterUrl = Math.floor(Math.random() * 100);
@@ -42,7 +42,6 @@ app.post("/api/shorturl", function (req, res) {
 
 app.get("/api/shorturl/:redirect", function (req, res) {
   const url = req.params.redirect;
-  console.log(url);
 
   const shortUrl = findShortUrl(url);
   if (shortUrl) {
@@ -56,13 +55,17 @@ app.listen(port, function () {
   console.log(`Listening on port ${port}`);
 });
 
-const stringIsAValidUrl = s => {
-  try {
-    new URL(s);
-    return true;
-  } catch (err) {
-    return false;
-  }
+const isValidUrl = urlString => {
+  var urlPattern = new RegExp(
+    "^(https?:\\/\\/)?" +
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" +
+      "((\\d{1,3}\\.){3}\\d{1,3}))" +
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" +
+      "(\\?[;&a-z\\d%_.~+=-]*)?" +
+      "(\\#[-a-z\\d_]*)?$",
+    "i"
+  );
+  return !!urlPattern.test(urlString);
 };
 
 const isUrlInFile = new_url => {
