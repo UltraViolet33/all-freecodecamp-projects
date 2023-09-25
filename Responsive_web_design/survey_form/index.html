@@ -25,17 +25,17 @@
                 <input type="email" id="email" required="required" placeholder="Enter your email" name="email">
             </div>
             <div class="input-group">
-                <label for="number" id="number-label">Age</label>
-                <input type="number" id="number" min="10" max="120" placeholder="Enter your age" name="number">
+                <label for="age" id="number-label">Age</label>
+                <input type="number" id="age" min="10" max="120" placeholder="Enter your age" name="age">
             </div>
             <div class="input-group">
                 <label for="situation">Situation</label>
                 <select name="situation" id="dropdown">
                     <option value="">Choose an option</option>
-                    <option value="">Student</option>
-                    <option value="">Jobless</option>
-                    <option value="">Developer</option>
-                    <option value="">Other</option>
+                    <option value="student">Student</option>
+                    <option value="jobless">Jobless</option>
+                    <option value="developer">Developer</option>
+                    <option value="other">Other</option>
                 </select>
             </div>
             <div class="input-group">
@@ -54,47 +54,47 @@
                 </div>
             </div>
             <div class="input-group">
-                <label>Choose your favorite programmation langages</label>
+                <label>Choose your favorite programming languages</label>
                 <div class="check-group">
-                    <input type="checkbox" value="Python" name="langages">
-                    <label for="langages">Python</label>
+                    <input type="checkbox" value="Python" name="languages[]">
+                    <label for="languages">Python</label>
                 </div>
                 <div class="check-group">
-                    <input type="checkbox" value="JavaScript" name="langages">
-                    <label for="langages">JavaScript</label>
+                    <input type="checkbox" value="JavaScript" name="languages[]">
+                    <label for="languages">JavaScript</label>
                 </div>
                 <div class="check-group">
-                    <input type="checkbox" value="Java" name="langages">
-                    <label for="langages">Java</label>
+                    <input type="checkbox" value="Java" name="languages[]">
+                    <label for="languages">Java</label>
                 </div>
                 <div class="check-group">
-                    <input type="checkbox" value="C" name="langages">
-                    <label for="langages">C</label>
+                    <input type="checkbox" value="C" name="languages[]">
+                    <label for="languages">C</label>
                 </div>
                 <div class="check-group">
-                    <input type="checkbox" value="C++" name="langages">
-                    <label for="langages">C++</label>
+                    <input type="checkbox" value="C++" name="languages[]">
+                    <label for="languages">C++</label>
                 </div>
                 <div class="check-group">
-                    <input type="checkbox" value="C#" name="langages">
-                    <label for="langages">C#</label>
+                    <input type="checkbox" value="C#" name="languages[]">
+                    <label for="languages">C#</label>
                 </div>
                 <div class="check-group">
-                    <input type="checkbox" value="Swift" name="langages">
-                    <label for="langages">Swift</label>
+                    <input type="checkbox" value="Swift" name="languages[]">
+                    <label for="languages">Swift</label>
                 </div>
                 <div class="check-group">
-                    <input type="checkbox" value="Kotlin" name="langages">
-                    <label for="langages">Kotlin</label>
+                    <input type="checkbox" value="Kotlin" name="languages[]">
+                    <label for="languages">Kotlin</label>
                 </div>
                 <div class="check-group">
-                    <input type="checkbox" value="PHP" name="langages">
-                    <label for="langages">PHP</label>
+                    <input type="checkbox" value="PHP" name="languages[]">
+                    <label for="languages">PHP</label>
                 </div>
             </div>
             <div class="input-group">
                 <label for="comment">Leave a comment</label>
-                <textarea cols="30" rows="10" name="comment"></textarea>
+                <textarea cols="30" rows="10" name="comment" id="comment"></textarea>
             </div>
             <button id="submit">Submit</button>
         </form>

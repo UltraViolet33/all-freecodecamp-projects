@@ -24,6 +24,10 @@ body::before {
     background-position: center;
 }
 
+header{
+    padding:10px;
+}
+
 #description,
 #title {
     text-align: center;
@@ -79,7 +83,7 @@ select {
 textarea {
     width: 100%;
     resize: none;
-    padding: 10px;
+    padding: 5px;
     font-size: 20px;
 }
 
