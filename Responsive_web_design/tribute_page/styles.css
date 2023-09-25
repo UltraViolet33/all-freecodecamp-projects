@@ -46,9 +46,10 @@ h2 {
 }
 
 @media (max-width: 1000px) {
+
   #tribute-info,
   #quote {
-    width: 400px;
+    width: 500px;
   }
 }
 
