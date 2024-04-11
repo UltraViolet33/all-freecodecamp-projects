@@ -1,0 +1,10 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.navigation-list{
+    list-style-type: none;
+    display: flex;
+}
