@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <div id="calculator">
+        <div id="screen">
+            <p id="display">0</p>
+        </div>
+        <div id="keyboard">
+            <button class="button" onclick='getInput(7);' id="seven">7</button>
+            <button class="button" onclick='getInput(8);' id="eight">8</button>
+            <button class="button" onclick='getInput(9);' id="nine">9</button>
+            <button class="button" onclick='getInput(4);' id="four">4</button>
+            <button class="button" onclick='getInput(5);' id="five">5</button>
+            <button class="button" onclick='getInput(6);' id="six">6</button>
+            <button class="buttonOP" onclick='getInput("+");' id="add">+</button>
+            <button class="button" onclick='getInput(1);' id="one">1</button>
+            <button class="button" onclick='getInput(2);' id="two">2</button>
+            <button class="button" onclick='getInput(3);' id="three">3</button>
+            <button class="buttonOP" onclick='getInput("-");' id="subtract">-</button>
+            <button class="button" onclick='getInput(".");' id="decimal">.</button>
+            <button class="button" onclick='getInput(0);' id="zero">0</button>
+            <button class="buttonOP" onclick='getInput("/");' id="divide">/</button>
+            <button class="buttonOP" onclick='getInput("x");' id="multiply">x</button>
+            <button class="button" onclick='reset();' id="clear">RESET</button>
+            <button class="button" id="equals">=</button>
+        </div>
+    </div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script type="text/javascript" src="calculator.js"></script>
+</body>
+
+</html>
