@@ -16,7 +16,6 @@ app.get("/", function (req, res) {
   res.sendFile(process.cwd() + "/views/index.html");
 });
 
-// Your first API endpoint
 app.get("/api/hello", function (req, res) {
   res.json({ greeting: "hello API" });
 });
@@ -55,7 +54,7 @@ app.listen(port, function () {
   console.log(`Listening on port ${port}`);
 });
 
-const isValidUrl = urlString => {
+const isValidUrl = (urlString) => {
   var urlPattern = new RegExp(
     "^(https?:\\/\\/)?" +
       "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" +
@@ -68,7 +67,7 @@ const isValidUrl = urlString => {
   return !!urlPattern.test(urlString);
 };
 
-const isUrlInFile = new_url => {
+const isUrlInFile = (new_url) => {
   const urls = getUrls();
 
   for (const url of urls) {
@@ -80,7 +79,7 @@ const isUrlInFile = new_url => {
   return false;
 };
 
-const findShortUrl = shortUrl => {
+const findShortUrl = (shortUrl) => {
   const urls = getUrls();
 
   for (const url of urls) {
@@ -92,7 +91,7 @@ const findShortUrl = shortUrl => {
   return false;
 };
 
-const saveUrl = data => {
+const saveUrl = (data) => {
   const urls = getUrls();
   urls.push(data);
 
